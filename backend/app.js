@@ -14,6 +14,8 @@ const Listing = require("./models/listing"); //require model listing
 const Admin = require("./models/admin"); //require model Admin
 const User = require("./models/user"); //require model User
 
+// const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 
 const Review = require("./models/reviews");
