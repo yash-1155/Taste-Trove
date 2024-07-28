@@ -1,0 +1,4 @@
+.rating-stars {
+    display: inline-flex; /* Display the stars in a flex container */
+    align-items: center; /* Align items vertically center */
+  }

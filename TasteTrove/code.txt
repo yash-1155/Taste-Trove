@@ -1,0 +1,11 @@
+crypto library is used to generate the random token for password reset
+
+1)randomBytes(32,toS tring('hex'))=32 for no of characterand hex give in which form we want that token
+2)we have to encrypt the token which can be done using crypto.createHash('algorithm type').update('string to be encrypt').digest('type of the hash')
+we can use bcrypt but we dont need hash to be much sstrong
+
+
+c23fb1a773deae6b22c366168eee8456dbddf1094072655349fb66668409d241
+
+ "password":"abc",
+  "Cpassword":"abc"

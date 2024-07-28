@@ -1,0 +1,59 @@
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* display: flex;
+  justify-content: space-around; */
+}
+
+.img-details {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.img-details > .card {
+  display: flex;
+  flex-basis: 48%;
+  margin-bottom: 20px;
+}
+
+.card a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.details {
+}
+.details p {
+  padding: 7px;
+}
+
+.text-blue-500 {
+  color: #3b82f6;
+}
+
+.text-red-500 {
+  color: #ef4444;
+}
+
+.del-btn {
+  margin-left: 8px;
+  padding: 3px;
+  color: #faf4f4;
+  background-color: #ef4444;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+@media only screen and (max-width: 768px) {
+  .img-details > .card {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .img-details > .card {
+    flex-basis: 100%;
+  }
+}

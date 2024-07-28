@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "whapi",
+      "source": "@whapi/v1.8.3#fhz020lvcmin6g",
+      "integrity": "sha512-CgvFP9OqybZObfAxMZBy+GJ92OPLOZN84/0wjRFy/lqoRvSOfC3VllQB7ajtJIKFEwqRpA1TSC0iTXN/91b9KQ==",
+      "installerVersion": "6.1.1"
+    }
+  ]
+}

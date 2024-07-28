@@ -1,0 +1,69 @@
+.aaa {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.edit-container {
+  max-width: 100%;
+  /* margin: 0 auto; */
+  padding: 20px;
+  /* background-color: #121212; */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-image {
+  max-width: 50%;
+  height: 80vh;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+.edit-image:hover {
+  transition: transform 0.2s;
+
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.edit-input {
+  margin-bottom: 15px;
+}
+
+.edit-input label {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.edit-input input {
+  width: 100%;
+  padding: 8px;
+  background-color: #fff4f46a;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-input input[type="file"] {
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #ff511c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #ff511cc0;
+}
