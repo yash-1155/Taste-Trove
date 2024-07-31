@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@api/whapi": "file:.api/apis/whapi",
-    "axios": "^1.6.2",
+    "axios": "^1.7.2",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.21.0",
@@ -33,8 +33,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0"
   },
-  
   "resolutions": {
-    "axios": "1.6.2"
+    "axios": "0.27.2"
   }
 }
