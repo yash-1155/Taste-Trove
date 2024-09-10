@@ -4,9 +4,7 @@ import Home from "./ui/Home";
 import Error from "./ui/Error";
 import Menu, { loader as menuLoader } from "./features/menu/Menu";
 import Cart from "./features/cart/Cart";
-import CreateOrd,{
-  createOrderAction,
-} from "./features/order/CreateOrd";
+import CreateOrd, { createOrderAction } from "./features/order/CreateOrd";
 // import Order, { loader as orderLoader } from "./features/order/Order";
 // import { action as updateOrderAction } from "./features/order/UpdateOrder";
 import AppLayout from "./ui/AppLayout";
@@ -24,11 +22,11 @@ import AllMess from "./ui/AllMess";
 import Mainn from "./ui/Mainn";
 import Forgotpassword from "./ui/Forgotpassword";
 import ResetPassword from "./ui/ResetPassword";
-import Profile from './ui/Profile'
-import UserProfile from './ui/UserProfile'
+import Profile from "./ui/Profile";
+import UserProfile from "./ui/UserProfile";
 import "./index.css";
-import AdminHub from "./ui/Dashboard"
-import DashboardAdmin from "./ui/DashboardAdmin"
+import AdminHub from "./ui/Dashboard";
+import DashboardAdmin from "./ui/DashboardAdmin";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -57,25 +55,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/Adminprofile/:id",
-        element: <DashboardAdmin/>,
+        element: <DashboardAdmin />,
       },
       {
         path: "/Userprofile/:id",
-        element: <AdminHub/>,
+        element: <AdminHub />,
       },
       {
         path: "/listings/:bid",
-        element: <Main/>,
+        element: <Main />,
       },
       {
         path: "/listings/Owner/:bid",
-        element: <Mainn/>,
+        element: <Mainn />,
       },
       {
         path: "/new/:id",
         element: <NewListing />,
       },
-      ,
+
       {
         path: "/signUp",
         element: <SignUpForm />,
@@ -83,7 +81,7 @@ const router = createBrowserRouter([
       {
         path: "/order/neworder/:userid",
         element: <CreateOrd />,
-        action: createOrderAction
+        action: createOrderAction,
       },
       {
         path: "/menu",
@@ -118,10 +116,6 @@ const router = createBrowserRouter([
         path: "/login/resetPassword/:token",
         element: <ResetPassword />,
       },
-      // {
-      //   path: "/dashboard",
-      //   element: <AdminHub />,
-      // }
     ],
   },
 ]);

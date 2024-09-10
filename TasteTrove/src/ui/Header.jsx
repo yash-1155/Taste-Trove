@@ -37,7 +37,7 @@ function Header() {
       .get("http://localhost:3000/users", { withCredentials: true })
       .then((response) => {
         setUserData(response.data);
-        // console.log(response.data)
+        console.log(response.data);
 
         addUserData(response.data);
       })
@@ -65,7 +65,7 @@ function Header() {
       </Link>
 
       <div className="flex justify-between items-center space-x-16 px-4 font-semibold">
-      <Link to="/">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/allListings">All Mess</Link>
         {/* Display Location */}
 
