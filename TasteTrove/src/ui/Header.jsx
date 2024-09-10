@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import { Link, NavLink } from "react-router-dom";
 import SearchOrder from "../features/order/SearchOrder";
 import Username from "../features/user/Username";

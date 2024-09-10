@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import axios from "axios";
 import Home from "./ui/Home";
