@@ -60,6 +60,8 @@ const methodOverride = require("method-override");
 const asyncWrapper = require("./middlewares/async.js");
 app.use(methodOverride("_method"));
 // initializingPassport(passport);
+// app.use();
+app.set("trust proxy", 1);
 app.use(
   expressSession({
     secret: process.env.secret,
@@ -79,6 +81,15 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app"
+  );
+  res.header("Access-Control-Allow-Credentials", true);
+
+  next();
+});
 //http://localhost:3000/Owner/listings/:id
 //http://localhost:3000/Owner/listings/${id}
 
