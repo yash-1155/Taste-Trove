@@ -25,11 +25,11 @@ const login = async (req, res) => {
     const result = sendMail(req.user.email);
     console.log("email sent successfully " + result);
     res.redirect(
-      "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app"
+      "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app"
     );
   } else {
     res.redirect(
-      "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app/login"
+      "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login"
     );
   }
 };
@@ -58,7 +58,7 @@ const signUp = asyncWrapper(async (req, res) => {
       text: `Welcome to Taste Trove! 🎉 Thank you for joining our vibrant community of food enthusiasts. Get ready to discover exciting flavors, connect with fellow foodies, and embark on delicious culinary adventures. Happy exploring!`,
     });
     res.redirect(
-      "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app/login"
+      "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login"
     );
   }
   // let result = await newUser.save();

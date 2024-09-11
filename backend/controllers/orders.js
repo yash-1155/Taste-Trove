@@ -102,7 +102,7 @@ const getOrder = async (req, res) => {
       res.json(orderList);
     } else {
       res.redirect(
-        "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app/login"
+        "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login"
       );
     }
   } catch (error) {

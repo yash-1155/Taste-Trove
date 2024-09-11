@@ -38,6 +38,7 @@ const MessItem = (listing) => {
   } = listing.listing;
 
   const userData = useSelector((state) => state.userdata);
+
   const navigate = useNavigate();
 
   const deleteListing = async (id) => {
@@ -110,7 +111,12 @@ const MessItem = (listing) => {
             <a href={"allListings"} onClick={() => deleteListing(_id)}>
               <button className="del-btn">Delete</button>
             </a> */}
-            {userData && userData.length > 1 && userData[0].Type == "User" && (
+            {/* {userData && userData.length > 1 && userData[0].Type == "User" && (
+              <a href={"allListings"} onClick={handleAddToCart}>
+                <button className="del-btn">Book Now</button>
+              </a>
+            )} */}
+            {userData && userData.Type == "User" && (
               <a href={"allListings"} onClick={handleAddToCart}>
                 <button className="del-btn">Book Now</button>
               </a>

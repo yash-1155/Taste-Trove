@@ -26,11 +26,11 @@ const login = async (req, res) => {
     const result = sendMail(req.user.email);
     console.log("email sent successfully " + result);
     res.redirect(
-      "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app"
+      "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app"
     );
   } else {
     res.redirect(
-      "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app/login"
+      "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login"
     );
   }
 };
@@ -69,7 +69,7 @@ const signUp = asyncWrapper(async (req, res) => {
     });
     console.log("successfully created");
     res.redirect(
-      "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app/login"
+      "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login"
     );
   }
   // let result = await newUser.save();
@@ -79,7 +79,7 @@ const logout = asyncWrapper(async (req, res) => {
   console.log("logging out");
   req.logout();
   res.redirect(
-    "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app/login"
+    "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login"
   );
 });
 const forgotPassword = asyncWrapper(async (req, res) => {
@@ -169,12 +169,12 @@ const passwordResetRedirect = async (req, res) => {
     return res
       .status(400)
       .redirect(
-        "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app/login"
+        "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login"
       );
   }
 
   res.redirect(
-    `https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app/login/resetPassword/${idToken.token}`
+    `https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login/resetPassword/${idToken.token}`
   );
 };
 module.exports = {

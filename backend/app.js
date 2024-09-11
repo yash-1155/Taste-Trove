@@ -47,7 +47,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(
   cors({
     origin:
-      "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app",
+      "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app",
     methods: "GET,PUT,POST,DELETE,PATCH",
     credentials: true,
   })
@@ -84,7 +84,7 @@ app.use(passport.session());
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app"
+    "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app"
   );
   res.header("Access-Control-Allow-Credentials", true);
 

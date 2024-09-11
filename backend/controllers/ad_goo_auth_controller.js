@@ -7,7 +7,7 @@ const logout = asyncWrapper(async (req, res) => {
       return next(err);
     }
     console.log("Successfully logged out");
-    // res.redirect('https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app/login');
+    // res.redirect('https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login');
   });
 });
 
@@ -22,7 +22,7 @@ const redirect = asyncWrapper(async (req, res) => {
     });
     console.log("email sent successfully ");
     res.redirect(
-      "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app"
+      "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app"
     );
   }
   // res.send("heelo redirect")
