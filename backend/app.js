@@ -46,7 +46,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://eloquent-cannoli-5fbaf6.netlify.app",
     methods: "GET,PUT,POST,DELETE,PATCH",
     credentials: true,
   })
