@@ -47,7 +47,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(
   cors({
     origin:
-      "https://66e15e2f0b7273c4ac6be5bc--superlative-cobbler-334d62.netlify.app",
+      "https://66e164e0f51a09d5afceeb14--bespoke-biscuit-56cb4d.netlify.app",
     methods: "GET,PUT,POST,DELETE,PATCH",
     credentials: true,
   })
