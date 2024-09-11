@@ -25,11 +25,11 @@ const login = async (req, res) => {
     const result = sendMail(req.user.email);
     console.log("email sent successfully " + result);
     res.redirect(
-      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app"
+      "https://66e15e2f0b7273c4ac6be5bc--superlative-cobbler-334d62.netlify.app"
     );
   } else {
     res.redirect(
-      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+      "https://66e15e2f0b7273c4ac6be5bc--superlative-cobbler-334d62.netlify.app/login"
     );
   }
 };
@@ -58,7 +58,7 @@ const signUp = asyncWrapper(async (req, res) => {
       text: `Welcome to Taste Trove! 🎉 Thank you for joining our vibrant community of food enthusiasts. Get ready to discover exciting flavors, connect with fellow foodies, and embark on delicious culinary adventures. Happy exploring!`,
     });
     res.redirect(
-      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+      "https://66e15e2f0b7273c4ac6be5bc--superlative-cobbler-334d62.netlify.app/login"
     );
   }
   // let result = await newUser.save();

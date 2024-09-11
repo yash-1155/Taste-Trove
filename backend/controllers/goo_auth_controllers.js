@@ -8,7 +8,7 @@ const logout = asyncWrapper(async (req, res) => {
     }
     console.log("Successfully logged out");
     res.redirect(
-      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+      "https://66e15e2f0b7273c4ac6be5bc--superlative-cobbler-334d62.netlify.app/login"
     );
   });
 });
@@ -24,7 +24,7 @@ const redirect = asyncWrapper(async (req, res) => {
     });
     console.log("email sent successfully ");
     res.redirect(
-      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app"
+      "https://66e15e2f0b7273c4ac6be5bc--superlative-cobbler-334d62.netlify.app"
     );
   }
   // res.send("heelo redirect")
