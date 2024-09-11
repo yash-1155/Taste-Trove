@@ -101,7 +101,9 @@ const getOrder = async (req, res) => {
       console.log(orderList);
       res.json(orderList);
     } else {
-      res.redirect("https://eloquent-cannoli-5fbaf6.netlify.app/login");
+      res.redirect(
+        "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+      );
     }
   } catch (error) {
     console.error("Error fetching orders:", error);

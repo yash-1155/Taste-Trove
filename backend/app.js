@@ -46,7 +46,8 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(
   cors({
-    origin: "https://eloquent-cannoli-5fbaf6.netlify.app",
+    origin:
+      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/",
     methods: "GET,PUT,POST,DELETE,PATCH",
     credentials: true,
   })

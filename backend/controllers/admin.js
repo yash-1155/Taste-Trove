@@ -24,9 +24,13 @@ const login = async (req, res) => {
   if (req.isAuthenticated()) {
     const result = sendMail(req.user.email);
     console.log("email sent successfully " + result);
-    res.redirect("https://eloquent-cannoli-5fbaf6.netlify.app");
+    res.redirect(
+      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app"
+    );
   } else {
-    res.redirect("https://eloquent-cannoli-5fbaf6.netlify.app/login");
+    res.redirect(
+      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+    );
   }
 };
 
@@ -53,7 +57,9 @@ const signUp = asyncWrapper(async (req, res) => {
       subject: "Success",
       text: `Welcome to Taste Trove! 🎉 Thank you for joining our vibrant community of food enthusiasts. Get ready to discover exciting flavors, connect with fellow foodies, and embark on delicious culinary adventures. Happy exploring!`,
     });
-    res.redirect("https://eloquent-cannoli-5fbaf6.netlify.app/login");
+    res.redirect(
+      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+    );
   }
   // let result = await newUser.save();
 });

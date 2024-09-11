@@ -25,9 +25,13 @@ const login = async (req, res) => {
   if (req.isAuthenticated()) {
     const result = sendMail(req.user.email);
     console.log("email sent successfully " + result);
-    res.redirect("https://eloquent-cannoli-5fbaf6.netlify.app");
+    res.redirect(
+      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app"
+    );
   } else {
-    res.redirect("https://eloquent-cannoli-5fbaf6.netlify.app/login");
+    res.redirect(
+      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+    );
   }
 };
 const signUpform = (req, res) => {
@@ -64,7 +68,9 @@ const signUp = asyncWrapper(async (req, res) => {
       text: `Welcome to Taste Trove! 🎉 Thank you for joining our vibrant community of food enthusiasts. Get ready to discover exciting flavors, connect with fellow foodies, and embark on delicious culinary adventures. Happy exploring!`,
     });
     console.log("successfully created");
-    res.redirect("https://eloquent-cannoli-5fbaf6.netlify.app/login");
+    res.redirect(
+      "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+    );
   }
   // let result = await newUser.save();
 });
@@ -72,7 +78,9 @@ const signUp = asyncWrapper(async (req, res) => {
 const logout = asyncWrapper(async (req, res) => {
   console.log("logging out");
   req.logout();
-  res.redirect("https://eloquent-cannoli-5fbaf6.netlify.app/login");
+  res.redirect(
+    "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+  );
 });
 const forgotPassword = asyncWrapper(async (req, res) => {
   const forgottedUser = await User.findOne({ email: req.body.email });
@@ -160,11 +168,13 @@ const passwordResetRedirect = async (req, res) => {
 
     return res
       .status(400)
-      .redirect("https://eloquent-cannoli-5fbaf6.netlify.app/login");
+      .redirect(
+        "https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login"
+      );
   }
 
   res.redirect(
-    `https://eloquent-cannoli-5fbaf6.netlify.app/login/resetPassword/${idToken.token}`
+    `https://66e155b3d88c5db7b83cf5aa--silly-twilight-a65c1c.netlify.app/login/resetPassword/${idToken.token}`
   );
 };
 module.exports = {
