@@ -46,8 +46,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(
   cors({
-    origin:
-      "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app",
+    origin: "https://famous-licorice-a516fd.netlify.app",
     methods: "GET,PUT,POST,DELETE,PATCH",
     credentials: true,
   })
@@ -84,7 +83,7 @@ app.use(passport.session());
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app"
+    "https://famous-licorice-a516fd.netlify.app"
   );
   res.header("Access-Control-Allow-Credentials", true);
 

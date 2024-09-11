@@ -101,9 +101,7 @@ const getOrder = async (req, res) => {
       console.log(orderList);
       res.json(orderList);
     } else {
-      res.redirect(
-        "https://66e17dcbb78ea4f32c85c627--famous-licorice-a516fd.netlify.app/login"
-      );
+      res.redirect("https://famous-licorice-a516fd.netlify.app/login");
     }
   } catch (error) {
     console.error("Error fetching orders:", error);
