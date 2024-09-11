@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate,useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 
 import "./NewListing.css";
@@ -99,8 +99,9 @@ const NewListing = () => {
 
       formData.append("image", listing.image); // Append image file to FormData
       const response = await axios.post(
-        "http://localhost:3000/listings",
-        formData, { withCredentials: true }
+        "https://taste-trove.onrender.com/listings",
+        formData,
+        { withCredentials: true }
       );
       console.log(response.data);
       setListing({
@@ -297,7 +298,6 @@ const NewListing = () => {
         </div>
       </div>
       <Footer></Footer>
-     
     </>
   );
 };

@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const Edit = () => {
   const userdata = useSelector((state) => state.userdata);
-  console.log(userdata)
+  console.log(userdata);
   const { bid } = useParams();
   const navigate = useNavigate();
   const [Listing, setListing] = useState({
@@ -36,7 +36,7 @@ const Edit = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/listings/${bid}`)
+      .get(`https://taste-trove.onrender.com/listings/${bid}`)
       .then((response) => {
         setListing({
           ...Listing,
@@ -72,7 +72,7 @@ const Edit = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        ` http://localhost:3000/listings/${bid}`,
+        ` https://taste-trove.onrender.com/listings/${bid}`,
         Listing
       );
       console.log(response.data);
@@ -85,7 +85,7 @@ const Edit = () => {
       //     'imgg':''
       // })
       navigate(`/Adminprofile/${userdata[0]._id}`);
-    //  http://localhost:5173/Adminprofile/6613c75baa3d6577f855a881
+      //  http://localhost:5173/Adminprofile/6613c75baa3d6577f855a881
     } catch (error) {
       console.error(error);
     }

@@ -19,7 +19,7 @@ import ReactMapGl, {
 
 const Mainn = () => {
   const userdata = useSelector((state) => state.userdata);
-  console.log(userdata)
+  console.log(userdata);
 
   const [newplace, setNewplace] = useState(null);
   const navigate = useNavigate();
@@ -51,8 +51,9 @@ const Mainn = () => {
       console.log(info.dishname);
       console.log(info);
       const response = await axios.post(
-        `http://localhost:3000/listings/${bid}/weeklymenu`,
-        info, { withCredentials: true }
+        `https://taste-trove.onrender.com/listings/${bid}/weeklymenu`,
+        info,
+        { withCredentials: true }
       );
       setInfo({
         dishname: "",
@@ -76,14 +77,19 @@ const Mainn = () => {
   };
 
   const deleteListing = async (id) => {
-    axios.delete(`http://localhost:3000/listings/${id}`, { withCredentials: true });
+    axios.delete(`https://taste-trove.onrender.com/listings/${id}`, {
+      withCredentials: true,
+    });
   };
 
   const deleteReview = async (id) => {
-    // axios.delete(`http://localhost:3000/listings/${bid}/${id}/reviews`,{withCredentials: true});
-    axios.delete(`http://localhost:3000/listing/${bid}/reviews/${id}`, {
-      withCredentials: true,
-    })
+    // axios.delete(`https://taste-trove.onrender.com/listings/${bid}/${id}/reviews`,{withCredentials: true});
+    axios.delete(
+      `https://taste-trove.onrender.com/listing/${bid}/reviews/${id}`,
+      {
+        withCredentials: true,
+      }
+    );
   };
 
   useEffect(() => {
@@ -93,7 +99,9 @@ const Mainn = () => {
 
   const getData = async () => {
     axios
-      .get(`http://localhost:3000/listings/${bid}`, { withCredentials: true })
+      .get(`https://taste-trove.onrender.com/listings/${bid}`, {
+        withCredentials: true,
+      })
       .then((response) => {
         setListing(response.data);
       })
@@ -104,7 +112,9 @@ const Mainn = () => {
 
   const getDataR = async () => {
     axios
-      .get(`http://localhost:3000/listing/${bid}/reviews`, { withCredentials: true })
+      .get(`https://taste-trove.onrender.com/listing/${bid}/reviews`, {
+        withCredentials: true,
+      })
       .then((response) => {
         setReviews(response.data);
       })
@@ -117,8 +127,9 @@ const Mainn = () => {
     e.preventDefault();
     console.log(Review);
     const response = await axios.post(
-      `http://localhost:3000/listing/${bid}/reviews`,
-      Review , { withCredentials: true }
+      `https://taste-trove.onrender.com/listing/${bid}/reviews`,
+      Review,
+      { withCredentials: true }
     );
     console.log("hello");
     setReview({
@@ -138,7 +149,7 @@ const Mainn = () => {
     latitude: "",
     longitude: "",
     zoom: 8,
-    owner: '',
+    owner: "",
   });
 
   const [showDays, setShowDays] = useState(false);
@@ -161,8 +172,9 @@ const Mainn = () => {
   const deletemenu = async (day, type, name) => {
     console.log("hello");
     axios.delete(
-      `http://localhost:3000/listings/${bid}/dish/${day}/${type}/${name}`
-      , { withCredentials: true });
+      `https://taste-trove.onrender.com/listings/${bid}/dish/${day}/${type}/${name}`,
+      { withCredentials: true }
+    );
     window.location.reload(); // Refresh the page
   };
   const [viewport, setViewport] = useState({
@@ -189,7 +201,7 @@ const Mainn = () => {
         </div>
         <div className="messdetails">
           <li>
-            Name: <i>{Listing.name}</i> 
+            Name: <i>{Listing.name}</i>
           </li>
           <li>
             Rating: <i>{Listing.rating}</i>
@@ -439,27 +451,29 @@ const Mainn = () => {
       )
       } */}
 
-      {
-        Reviews && <div> <div className="review-container">
-          {Reviews.map((review, index) => (
-            <div className="review" key={index}>
-              {review.Author && (
-                <p>User: {review.Author.name}</p>
-              )}
-              <p>Rating: {review.rating}</p>
-              <p>Comment: {review.comment}</p>
-              {userdata.length > 1 && review.Author._id == userdata[0]._id &&
-                <a
-                  href={`/listings/${bid}`}
-                  onClick={() => deleteReview(review._id)}
-                >
-                  Delete
-                </a>
-              }
-            </div>
-          ))}
-        </div></div>
-      }
+      {Reviews && (
+        <div>
+          {" "}
+          <div className="review-container">
+            {Reviews.map((review, index) => (
+              <div className="review" key={index}>
+                {review.Author && <p>User: {review.Author.name}</p>}
+                <p>Rating: {review.rating}</p>
+                <p>Comment: {review.comment}</p>
+                {userdata.length > 1 &&
+                  review.Author._id == userdata[0]._id && (
+                    <a
+                      href={`/listings/${bid}`}
+                      onClick={() => deleteReview(review._id)}
+                    >
+                      Delete
+                    </a>
+                  )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <Box
         className="Box"
@@ -495,7 +509,6 @@ const Mainn = () => {
 
           <NavigationControl position="bottom-right" />
 
-
           <GeolocateControl
             position="top-left"
             trackUserLocation
@@ -504,29 +517,33 @@ const Mainn = () => {
         </ReactMapGl>
       </Box>
       <br />
-      {
-        Listing.owner && userdata.length > 1  && <div className="button-container">
-        <a href={`/editListing/${bid}`} className="button">
-          Edit
-        </a>
-           <a href={`/Adminprofile/${userdata[0]._id}`} onClick={() => deleteListing(bid)}>
-                            <button className="del-btn">Delete</button>
-                        </a>
-        {/* <a
+      {Listing.owner && userdata.length > 1 && (
+        <div className="button-container">
+          <a href={`/editListing/${bid}`} className="button">
+            Edit
+          </a>
+          <a
+            href={`/Adminprofile/${userdata[0]._id}`}
+            onClick={() => deleteListing(bid)}
+          >
+            <button className="del-btn">Delete</button>
+          </a>
+          {/* <a
           href="/allListings"
           onClick="deleteListing(bid)"
           className="button delete"
         >
         Delete
         </a> */}
-      </div>
-      }
+        </div>
+      )}
     </div>
   );
 };
 
 export default Mainn;
-{/* <GeolocateControl
+{
+  /* <GeolocateControl
             position="top-left"
             trackUserLocation
             onGeolocate={(e) => (
@@ -534,17 +551,23 @@ export default Mainn;
               // Listing.longitude = e.coords.longitude
               (Listing.latitude = 100), (Listing.longitude = 100)
             )}
-          /> */}
-{/* <a href={`/listings/${bid}/AllDishes`} className="button">
+          /> */
+}
+{
+  /* <a href={`/listings/${bid}/AllDishes`} className="button">
           All Dish
-        </a> */}
-{/* <a href={`/listings/${bid}/newdish`} className="button">
+        </a> */
+}
+{
+  /* <a href={`/listings/${bid}/newdish`} className="button">
           Add Dish
         </a>
         <a href={`/listings/${bid}/addnewmenu`} className="button">
           Add Weekly Menu
-        </a> */}
-{/* <form className="review-form" onSubmit={handleSubmit}>
+        </a> */
+}
+{
+  /* <form className="review-form" onSubmit={handleSubmit}>
         <h3>Add Review</h3>
         <div className="rating">
           <input
@@ -622,4 +645,5 @@ export default Mainn;
         <a href={`/listings/${bid}`} onClick={handleSubmit}>
           Submit
         </a>
-      </form> */}
+      </form> */
+}

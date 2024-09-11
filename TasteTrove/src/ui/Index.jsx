@@ -25,11 +25,10 @@ const Index = () => {
 
   const getData = async () => {
     axios
-      .get("http://localhost:3000/listings")
+      .get("https://taste-trove.onrender.com/listings")
       .then((response) => {
         setlistings(response.data); // Access response.data to get the actual data
-        setparentlistings(response.data)
-
+        setparentlistings(response.data);
       })
       .catch((error) => {
         // Changed to .catch to handle errors
@@ -37,18 +36,16 @@ const Index = () => {
       });
   };
   const filterListings = () => {
-   
-    const value=parentlistings
-    
+    const value = parentlistings;
+
     // console.log(listings)
-    const filteredListings = value.filter(listing => 
-      listing.name.toLowerCase().includes(searchData.toLowerCase()) 
+    const filteredListings = value.filter((listing) =>
+      listing.name.toLowerCase().includes(searchData.toLowerCase())
     );
     setlistings(filteredListings);
-  
-};
+  };
   // const deleteListing = async (id) => {
-  //     axios.delete(`http://localhost:3000/listings/${id}`)
+  //     axios.delete(`https://taste-trove.onrender.com/listings/${id}`)
   //     getData()
 
   // }
@@ -67,7 +64,6 @@ const Index = () => {
             {listings.map((listing) => (
               <MessItem listing={listing} key={listing.id} />
             ))}
-            
           </ul>
         </div>
       </div>
@@ -77,28 +73,6 @@ const Index = () => {
 };
 
 export default Index;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {
   /* <MessItem Mess={listing} key={listing.id} /> */

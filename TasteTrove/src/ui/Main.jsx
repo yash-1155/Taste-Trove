@@ -52,7 +52,7 @@ const Main = () => {
       console.log(info.dishname);
       console.log(info);
       const response = await axios.post(
-        `http://localhost:3000/listings/${bid}/weeklymenu`,
+        `https://taste-trove.onrender.com/listings/${bid}/weeklymenu`,
         info,
         { withCredentials: true }
       );
@@ -78,16 +78,19 @@ const Main = () => {
   };
 
   const deleteListing = async (id) => {
-    axios.delete(`http://localhost:3000/listings/${id}`, {
+    axios.delete(`https://taste-trove.onrender.com/listings/${id}`, {
       withCredentials: true,
     });
   };
 
   const deleteReview = async (id) => {
-    // axios.delete(`http://localhost:3000/listings/${bid}/${id}/reviews`,{withCredentials: true});
-    axios.delete(`http://localhost:3000/listing/${bid}/reviews/${id}`, {
-      withCredentials: true,
-    });
+    // axios.delete(`https://taste-trove.onrender.com/listings/${bid}/${id}/reviews`,{withCredentials: true});
+    axios.delete(
+      `https://taste-trove.onrender.com/listing/${bid}/reviews/${id}`,
+      {
+        withCredentials: true,
+      }
+    );
   };
 
   useEffect(() => {
@@ -97,7 +100,9 @@ const Main = () => {
 
   const getData = async () => {
     axios
-      .get(`http://localhost:3000/listings/${bid}`, { withCredentials: true })
+      .get(`https://taste-trove.onrender.com/listings/${bid}`, {
+        withCredentials: true,
+      })
       .then((response) => {
         setListing(response.data);
       })
@@ -108,7 +113,7 @@ const Main = () => {
 
   const getDataR = async () => {
     axios
-      .get(`http://localhost:3000/listing/${bid}/reviews`, {
+      .get(`https://taste-trove.onrender.com/listing/${bid}/reviews`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -123,7 +128,7 @@ const Main = () => {
     e.preventDefault();
     console.log(Review);
     const response = await axios.post(
-      `http://localhost:3000/listing/${bid}/reviews`,
+      `https://taste-trove.onrender.com/listing/${bid}/reviews`,
       Review,
       { withCredentials: true }
     );
@@ -174,7 +179,7 @@ const Main = () => {
   const deletemenu = async (day, type, name) => {
     console.log("hello");
     axios.delete(
-      `http://localhost:3000/listings/${bid}/dish/${day}/${type}/${name}`,
+      `https://taste-trove.onrender.com/listings/${bid}/dish/${day}/${type}/${name}`,
       { withCredentials: true }
     );
     window.location.reload(); // Refresh the page
@@ -218,9 +223,7 @@ const Main = () => {
           <li>
             Address: <i>{Listing.address}</i>
           </li>
-          <li>
-            Time: 
-          </li>
+          <li>Time:</li>
           <li>
             &#9788;
             <i>
@@ -372,7 +375,7 @@ const Main = () => {
         </div>
       </div> */}
 
-      {userdata.length > 1 && userdata[0].Type!="Admin" &&  (
+      {userdata.length > 1 && userdata[0].Type != "Admin" && (
         <div>
           <form className="review-form" onSubmit={handleSubmit}>
             <h3>Add Review</h3>

@@ -57,7 +57,7 @@ function DashboardAdmin() {
 
   //   const getUserData = async () => {
   //     try {
-  //       const response = await axios.get(`http://localhost:3000/User/${id}`, {
+  //       const response = await axios.get(`https://taste-trove.onrender.com/User/${id}`, {
   //         withCredentials: true,
   //       });
   //       // const response = useSelector((state)=>state.userdata);
@@ -75,7 +75,7 @@ function DashboardAdmin() {
 
   //   const getOrders = async () => {
   //     try {
-  //       const response = await axios.get(`http://localhost:3000/order/${id}`, {
+  //       const response = await axios.get(`https://taste-trove.onrender.com/order/${id}`, {
   //         withCredentials: true,
   //       });
   //       console.log(response.data);
@@ -165,7 +165,7 @@ function DashboardAdmin() {
   //     e.preventDefault();
   //     try {
   //       const response = await axios.put(
-  //         `http://localhost:3000/User/listings/${id}`,
+  //         `https://taste-trove.onrender.com/User/listings/${id}`,
   //         profile
   //       );
   //       console.log(response.data);
@@ -196,7 +196,9 @@ function DashboardAdmin() {
 
   const getUserData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/Owner/${id}`);
+      const response = await axios.get(
+        `https://taste-trove.onrender.com/Owner/${id}`
+      );
       const userData = response.data;
       setProfile(userData);
     } catch (error) {
@@ -206,7 +208,7 @@ function DashboardAdmin() {
   const getOrders = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/order/admin/${id}`,
+        `https://taste-trove.onrender.com/order/admin/${id}`,
         { withCredentials: true }
       );
       console.log(response.data);
@@ -247,7 +249,7 @@ function DashboardAdmin() {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3000/Owner/listings/${id}`,
+        `https://taste-trove.onrender.com/Owner/listings/${id}`,
         profile
       );
       console.log(`/profile/${id}`);
@@ -260,7 +262,7 @@ function DashboardAdmin() {
   const getData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/Owner/listings/${id}`,
+        `https://taste-trove.onrender.com/Owner/listings/${id}`,
         { withCredentials: true }
       );
       setListings(response.data);
@@ -339,7 +341,7 @@ function DashboardAdmin() {
             <Link
               href="#"
               className="logout"
-              to={"http://localhost:3000/auth/logout"}
+              to={"https://taste-trove.onrender.com/auth/logout"}
             >
               <i className="bx bxs-log-out-circle"></i>
               Logout &nbsp;
@@ -388,7 +390,9 @@ function DashboardAdmin() {
                     <span className="follow">{profile.state}</span>
                   </div>
                   <div className="d-flex mt-2">
-                    <button className="btn1 btn-dark"><Link to="/">Visit Mess</Link></button>
+                    <button className="btn1 btn-dark">
+                      <Link to="/">Visit Mess</Link>
+                    </button>
                   </div>
                   {/* <div className="text mt-3">
                     <span>
@@ -500,16 +504,16 @@ function DashboardAdmin() {
               <Button type="small">
                 <Link to={`/new/${id}`}>Add New Listing</Link>
               </Button>
-               
-            <div className="flex justify-ceter">
+
+              <div className="flex justify-ceter">
                 <div>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 px-2 py-2 gap-5 pr-2.5rem">
-                        {listings.map((listing) => (
-                            <MessItemOwner listing={listing} key={listing.id} />
-                        ))}
-                    </ul>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 px-2 py-2 gap-5 pr-2.5rem">
+                    {listings.map((listing) => (
+                      <MessItemOwner listing={listing} key={listing.id} />
+                    ))}
+                  </ul>
                 </div>
-            </div>
+              </div>
             </div>
           )}
         </div>

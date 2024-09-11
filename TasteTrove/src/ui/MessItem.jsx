@@ -41,7 +41,7 @@ const MessItem = (listing) => {
   const navigate = useNavigate();
 
   const deleteListing = async (id) => {
-    axios.delete(`http://localhost:3000/listings/${id}`);
+    axios.delete(`https://taste-trove.onrender.com/listings/${id}`);
     // getData()
   };
   const dispatch = useDispatch();
@@ -110,11 +110,11 @@ const MessItem = (listing) => {
             <a href={"allListings"} onClick={() => deleteListing(_id)}>
               <button className="del-btn">Delete</button>
             </a> */}
-            {
-              userData && userData.length > 1 && userData[0].Type=='User' && <a href={"allListings"} onClick={handleAddToCart}>
+            {userData && userData.length > 1 && userData[0].Type == "User" && (
+              <a href={"allListings"} onClick={handleAddToCart}>
                 <button className="del-btn">Book Now</button>
               </a>
-            }
+            )}
             &nbsp; &nbsp;
             <br></br>
           </div>

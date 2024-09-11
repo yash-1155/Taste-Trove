@@ -7,8 +7,8 @@ import img1 from "../SignInForm/google-icon.png";
 const SignInForm = () => {
   const [credentials, setCredentials] = React.useState({
     email: "",
-    name:"",
-    Contact:"",
+    name: "",
+    Contact: "",
     password: "",
     Cpassword: "",
     selectValue: "",
@@ -17,12 +17,12 @@ const SignInForm = () => {
   // Function to handle Google sign-in
   const handleGoogleSignIn = () => {
     // Implement the logic for Google Sign-In here
-    window.open("http://localhost:3000/auth/google", "_self");
+    window.open("https://taste-trove.onrender.com/auth/google", "_self");
     console.log("Google Sign-In clicked");
   };
   const handleAdminGoogleSignIn = () => {
     // Implement the logic for Google Sign-In here
-    window.open("http://localhost:3000/admin/auth/google", "_self");
+    window.open("https://taste-trove.onrender.com/admin/auth/google", "_self");
     console.log("Google Admin Sign-In clicked");
   };
   // useEffect(() => {
@@ -61,7 +61,7 @@ const SignInForm = () => {
       {credentials.selectValue == "Customer" ? (
         <>
           <form
-            action="http://localhost:3000/register"
+            action="https://taste-trove.onrender.com/register"
             method="post"
             className="form"
           >
@@ -129,7 +129,7 @@ const SignInForm = () => {
             <span className="title">Or Sign Up with</span>
             <div className="social-accounts">
               {/* Add Google Sign-In button with Google symbol */}
-              {/* <Link to="http://localhost:3000/auth/google"> */}
+              {/* <Link to="https://taste-trove.onrender.com/auth/google"> */}
               <button className="" onClick={handleGoogleSignIn}>
                 <img src={img1} alt="google-icon" />
               </button>
@@ -147,7 +147,7 @@ const SignInForm = () => {
       ) : credentials.selectValue == "MessOwner" ? (
         <>
           <form
-            action="http://localhost:3000/admin/register"
+            action="https://taste-trove.onrender.com/admin/register"
             method="post"
             className="form"
           >
@@ -215,7 +215,7 @@ const SignInForm = () => {
             <span className="title">Or Sign Up with</span>
             <div className="social-accounts">
               {/* Add Google Sign-In button with Google symbol */}
-              {/* <Link to="http://localhost:3000/auth/google"> */}
+              {/* <Link to="https://taste-trove.onrender.com/auth/google"> */}
               <button className="" onClick={handleAdminGoogleSignIn}>
                 <img src={img1} />
               </button>

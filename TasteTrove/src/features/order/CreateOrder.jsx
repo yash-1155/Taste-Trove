@@ -1,27 +1,39 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Form, redirect, useNavigation, useActionData,useParams,useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import {
+  Form,
+  redirect,
+  useNavigation,
+  useActionData,
+  useParams,
+  useNavigate,
+} from "react-router-dom";
 // import { createOrder } from '../../services/apiRestaurant';
-import Button from '../../ui/Button';
-import EmptyCart from '../cart/EmptyCart';
-import {addItem,removeItem,increaseCount,decreaseCount,getcart} from '../../ui/store/addTocart';
-import store from '../../store';
-import { formatCurrency } from '../../utils/helpers';
-import { useDispatch } from 'react-redux';
-import { fetchAddress } from '../user/userSlice';
-import axios from 'axios';
-
+import Button from "../../ui/Button";
+import EmptyCart from "../cart/EmptyCart";
+import {
+  addItem,
+  removeItem,
+  increaseCount,
+  decreaseCount,
+  getcart,
+} from "../../ui/store/addTocart";
+import store from "../../store";
+import { formatCurrency } from "../../utils/helpers";
+import { useDispatch } from "react-redux";
+import { fetchAddress } from "../user/userSlice";
+import axios from "axios";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
-    str,
+    str
   );
 
 function CreateOrder() {
   const [withPriority, setWithPriority] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
   const navigate = useNavigate();
   const params = useParams();
   const {
@@ -31,18 +43,18 @@ function CreateOrder() {
     address,
     error: errorAddress,
   } = useSelector((state) => state.user);
-  const userdata=useSelector((state)=>state.userdata)
-  const isLoadingAddress = addressStatus === 'loading';
+  const userdata = useSelector((state) => state.userdata);
+  const isLoadingAddress = addressStatus === "loading";
 
   const navigation = useNavigation();
-  const isSubmitting = navigation.state === 'submitting';
+  const isSubmitting = navigation.state === "submitting";
 
   const formErrors = useActionData();
   const dispatch = useDispatch();
 
   const cart1 = useSelector(getcart);
-  const cart=cart1.payload.cartFunction.cartItems
-  console.log(cart)
+  const cart = cart1.payload.cartFunction.cartItems;
+  console.log(cart);
   // console.log(cart[0].totalAmount)
   // const totalCartPrice = useSelector(getTotalCartPrice);
   // const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
@@ -54,15 +66,15 @@ function CreateOrder() {
     try {
       // Call createOrderAction with the necessary parameters
       const result = await createOrderAction(params);
-  
+
       // Optionally handle the result
-      console.log('Order created successfully:', result);
-  
+      console.log("Order created successfully:", result);
+
       // Perform any navigation or UI updates as needed
-      navigate('/'); // Example navigation to the home page
+      navigate("/"); // Example navigation to the home page
     } catch (error) {
       // Handle any errors
-      console.error('Error creating order:', error);
+      console.error("Error creating order:", error);
       // Optionally, you can set an error state or display an error message to the user
     }
   };
@@ -73,7 +85,7 @@ function CreateOrder() {
       <h2 className="mb-8 text-xl font-semibold">Ready to order? Lets go!</h2>
 
       {/* <Form method="POST" action="/order/new"> */}
-      <Form method='post' >
+      <Form method="post">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label className="sm:basis-40">First Name</label>
           <input
@@ -88,7 +100,13 @@ function CreateOrder() {
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label className="sm:basis-40">Phone number</label>
           <div className="grow">
-            <input className="input w-full" type="tel" name="phone" onChange={handlePhoneChange} required />
+            <input
+              className="input w-full"
+              type="tel"
+              name="phone"
+              onChange={handlePhoneChange}
+              required
+            />
             {formErrors?.phone && (
               <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
                 {formErrors.phone}
@@ -153,12 +171,16 @@ function CreateOrder() {
             value={
               position.longitude && position.latitude
                 ? `${position.latitude},${position.longitude}`
-                : ''
+                : ""
             }
           />
-          <Button disabled={isSubmitting || isLoadingAddress} onClick={submitOrder} type="primary">
+          <Button
+            disabled={isSubmitting || isLoadingAddress}
+            onClick={submitOrder}
+            type="primary"
+          >
             {isSubmitting
-              ? 'Placing order...'
+              ? "Placing order..."
               : `Order now from ${formatCurrency(cart[0].totalAmount)}`}
           </Button>
         </div>
@@ -179,19 +201,23 @@ const createOrderAction = async (params) => {
     // For example, fetch additional information related to the user
 
     // Make a POST request to create a new order
-    const response = await axios.post(`http://localhost:3000/order/${userid}`, {
-      action: 'create',
-      // Include any additional data needed for creating the order
-    }, { withCredentials: true });
+    const response = await axios.post(
+      `https://taste-trove.onrender.com/order/${userid}`,
+      {
+        action: "create",
+        // Include any additional data needed for creating the order
+      },
+      { withCredentials: true }
+    );
 
     // Optionally, handle the response data
 
     // Return any relevant data or perform additional actions
     // return response.data;
-    navigate('/')
+    navigate("/");
   } catch (error) {
     // Handle any errors
-    console.error('Error creating order:', error);
+    console.error("Error creating order:", error);
     // Optionally, you can throw the error to propagate it to the caller
     throw error;
   }
@@ -199,6 +225,5 @@ const createOrderAction = async (params) => {
 
 // Export the action function
 export { createOrderAction };
-
 
 export default CreateOrder;
